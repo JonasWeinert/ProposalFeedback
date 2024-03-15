@@ -3,6 +3,7 @@ import streamlit as st
 import docx2txt
 from docxlatex import Document
 from util import test, overviewfb, detailedfb
+import tiktoken
 
 # Start Front End interface
 st.set_page_config(page_title='ProposalTutor', page_icon="🧡", layout="wide")
@@ -73,7 +74,10 @@ with st.sidebar:
     st.markdown("Eg 'Analytical: Does the proposed research analyse a phenomenon, or just describe it?'")
     extrac1 = st.text_input("Add your first extra criterion", placeholder = "Leave blank if not applicable", key = "crit1")
     extrac2 = st.text_input("Add your second extra criterion", placeholder = "Leave blank if not applicable", key = "crit2")
-
+    st.markdown('___')
+    st.markdown('Report a bug or contribute on [Github](https://github.com/JonasWeinert/ProposalFeedback/tree/main).')
+    st.markdown('___')
+    st.markdown('Made by [Jonas Weinert](https://github.com/JonasWeinert).')
 
 
 
@@ -120,6 +124,7 @@ if run == 1:
             cust_out = detailedfb(department, institution, program, proposal, custom_(extrac1, extrac2))
             custom.subheader('Your own criteria')
             custom.markdown(cust_out)
+
 
 
 
