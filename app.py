@@ -3,12 +3,6 @@ import streamlit as st
 import docx2txt
 from docxlatex import Document
 from util import test, overviewfb, detailedfb
-from prompts import literature, custom, hypotheses, methods_, novelty_feasbility, custom
-
-
-
-    
-
 
 # Start Front End interface
 st.set_page_config(page_title='ProposalTutor', page_icon="🧡", layout="wide")
@@ -82,6 +76,7 @@ with st.sidebar:
 
 
 
+from prompts import literature, custom_, hypotheses, methods_, novelty_feasbility
 
 ## Results
 if run == 1:
@@ -91,7 +86,7 @@ if run == 1:
     # output = overviewfb(department, institution, program, proposal)
     # with placeholder.container():
     #     st.markdown(output)
-    overview, lit, hyp, methods, novelty, custom, todo = st.tabs(["💡 Overview", "📖 Literature", "🔀 Hypotheses", "🔬 Methods", "🆕 Novelty & Feasability", "🧐 Your custom criteria", "✅ Your to do list"])
+    overview, lit, hyp, methods, novelty, custom = st.tabs(["💡 Overview", "📖 Literature", "🔀 Hypotheses", "🔬 Methods", "🆕 Novelty & Feasability", "🧐 Your custom criteria"])
 
     overview.subheader('General Feedback Overview')
     with st.spinner("Generating Feedback Overview. Please wait!"):
@@ -118,6 +113,12 @@ if run == 1:
         nov_out = detailedfb(department, institution, program, proposal, novelty_feasbility)
         novelty.subheader('Feasability & Novelty')
         novelty.markdown(nov_out)
+
+    if extrac1 or extrac2:
+        with st.spinner("Generating custom Feedback. Please wait!"):
+            cust_out = detailedfb(department, institution, program, proposal, custom_(extrac1, extrac2))
+            custom.subheader('Your own criteria')
+            custom.markdown(cust_out)
 
 
 

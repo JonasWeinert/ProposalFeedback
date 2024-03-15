@@ -37,7 +37,13 @@ Is the proposed reserach both novel enough and feasible to conduct within the sc
 
 #### Prompt for custom criteria
 
-custom = """
+def custom_(extrac1, extrac2 = ""):
+    customf = f"""
+    {extrac1}
 
+    {extrac2}
 
-"""
+    Do not provide feedback on any other apects of the prposal!
+
+    """
+    return customf
