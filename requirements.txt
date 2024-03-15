@@ -1,0 +1,5 @@
+streamlit
+tiktoken 
+docx2txt 
+openai
+docxlatex
