@@ -12,7 +12,6 @@ llm = "gpt-3.5-turbo-0125"
 def overviewfb(department, institution, program, proposal):
     OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
     client = OpenAI(
-        #api_key = "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"
         api_key = OPENAI_API_KEY
     )
 
@@ -37,7 +36,6 @@ def test(fname, lname):
 def detailedfb(department, institution, program, proposal, aspectprompt):
     OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
     client = OpenAI(
-        #api_key = "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"
         api_key = OPENAI_API_KEY
     )
 
