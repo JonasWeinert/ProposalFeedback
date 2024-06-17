@@ -28,7 +28,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
-st.title('Reserach Proposal Feedback Generator') # Title
+st.title('Research Proposal Feedback Generator') # Title
 st.markdown('You will get feedback on clarity, feasability, novelty, as well as your chosen methods and cases. You can also paste specific criteria that you would like to get feedback on the left.') # First paragraph
 
 upload, criteria = st.columns(2)
